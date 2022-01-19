@@ -24,7 +24,8 @@
       "error",
       { "argsIgnorePattern": "^_" }
     ],
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
+	"@next/next/no-img-element": "off"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

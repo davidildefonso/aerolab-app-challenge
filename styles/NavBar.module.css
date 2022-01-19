@@ -1,0 +1,37 @@
+.navBar{
+	display: flex;
+	flex-direction: row;
+	height: 50px;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0 80px;
+	
+}
+
+.logoText{
+	color: orange;
+	font-family: Montserrat;
+}
+
+.navMenuLabel{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	border: 1px solid rgba(0,0,0,0.2) ;
+	border-radius: 10px;
+	padding: 5px;
+	width: 120px;
+	height: 40px;
+}
+
+.navMenuLogoDiv{
+	background-color: indigo;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
