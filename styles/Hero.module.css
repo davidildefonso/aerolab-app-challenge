@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+
+.section{
+	display: flex;
+	flex: 1	;
+	height: 100vh;
+	padding-top: 120px;
+
+}
+
+.sectionRight{
+	display: flex;
+	justify-content: center;
+	align-items:flex-start;
+	width: 50%;
+	padding-top: 5vh;
+	overflow-x: hidden;
+}
+
+.heroImageContainer{
+	width: 100%;
+	height: 40vh;
+	position: relative;
+}
+
+.imageWrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+
+.image{
+	width: 100%;
+	height: auto;
+	transform: translateX(-10%);
+	
+}
+
+
+.titleWrap{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 50%;
+	padding: 0 80px;
+	line-height: 1;
+	
+}
+
+.imageBg{
+	background-image: url("/assets/img/illustration-BG.svg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: auto;
+	width: 100%;
+	height: 100%;
+	border-radius: 150px;
+	max-height: 400px;	
+	
+}
+
+
+
+
+.firstLine{
+	font-size: 1.5rem;
+	margin: 0;
+	color :  #7C899C;
+}
+
+.secondLine{
+	font-size: 8rem;
+	margin: 0;
+	padding: 0;
+	width: 300px;
+	font-family: "Changa One";
+	background-image:  linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; 
+	-moz-background-clip: text;
+	background-clip: text;
+	-moz-text-fill-color: transparent;
+	display: inline-block; 
+	
+}
+
+.thirdLine{
+	font-size: 8rem;
+	margin: 0;
+	font-family: "Changa One";
+	color: rgba(0, 0, 0, 0.75);
+	margin-top: -30px;
+}
+
+.fourthLine{
+	font-size: 1.2rem;	
+	color: #7C899C;
+	margin-top: 0;
+}
+
+
+.heroButton{
+	background-color: purple;
+	color: white;
+	border-radius: 25px;
+	padding: 5px 70px;
+	margin-top: 40px;
+	width: 318px;
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);
+
+
+}
+
