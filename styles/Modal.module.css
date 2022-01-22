@@ -1,0 +1,73 @@
+.container{
+	position: absolute;
+	right: 80px;
+	top: 50px;
+	z-index: 10;
+	background-color: #fff;
+	border-radius: 5%;
+	width: 300px;
+	border: 1px solid rgba(0,0,0,0.1);
+}		
+.header{
+	text-align: center;
+	border-bottom:  1px solid rgba(0,0,0,0.1);
+}						
+.imageSection	{
+	padding : 20px;
+}			
+.imageWrapper 	{
+	background-color: #252F3D;
+	border-radius: 7px;
+	color : #fff;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}	
+
+
+
+.subSection	{
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 15px;
+}
+
+.subSectionTitle{
+	font-size: 1.3rem;
+}
+
+.imageContainer{
+	background-color: #fff;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+			
+.selection	{
+	display: flex;
+	justify-content: space-evenly;
+}					
+.item{
+	border-radius: 5px;
+	background-color: #E5F0FF;
+}
+
+
+.itemSelected	{
+	border-radius: 5px;
+	background-color: linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);
+}						
+.action		{
+
+}				
+.button	{
+
+}			
+.buttonImage{
+
+}				

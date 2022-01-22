@@ -20,10 +20,8 @@ const Hero = () => {
 			<div className={styles.sectionRight}>
 				<div className={styles.heroImageContainer}>
 					<div className={styles.imageWrap} >	
-						<img  className={styles.image} src="/assets/img/Saly-19.svg" alt="hero image"></img>						
-					</div>
-					<div className={styles.imageBg} >						
-					</div>	
+						<img  className={styles.image} src="/assets/img/Saly-19.png" alt="hero image"/>						
+					</div>				
 				</div>				
 			</div>
 			

@@ -4,7 +4,8 @@
 	display: flex;
 	flex: 1	;
 	height: 100vh;
-	padding-top: 120px;
+	padding-top: 50px;
+	position: relative;
 
 }
 
@@ -13,13 +14,12 @@
 	justify-content: center;
 	align-items:flex-start;
 	width: 50%;
-	padding-top: 5vh;
-	overflow-x: hidden;
+	
 }
 
 .heroImageContainer{
 	width: 100%;
-	height: 40vh;
+	height: 100%;
 	position: relative;
 }
 
@@ -28,42 +28,47 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
+	max-height: 80vh;
+	position: relative;
 	
+	
+}
+
+.imageWrap::before{
+	content: "";
+	background: linear-gradient(102.47deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%);
+
+	width: 80%;
+	height: 75%;
+	position: absolute;
+	border-radius: 50px;
+	z-index: -1;
+	bottom: 0;
 }
 
 .image{
 	width: 100%;
 	height: auto;
-	transform: translateX(-10%);
+	max-height: 80vh;
 	
 }
+
+
+
 
 
 .titleWrap{
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	justify-content: center;
 	width: 50%;
 	padding: 0 80px;
 	line-height: 1;
 	
-}
-
-.imageBg{
-	background-image: url("/assets/img/illustration-BG.svg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	height: auto;
-	width: 100%;
-	height: 100%;
-	border-radius: 150px;
-	max-height: 400px;	
 	
 }
+
 
 
 

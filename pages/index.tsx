@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Hero from '../components/Hero';
 import NavBar from '../components/navbar';
 import styles from '../styles/Home.module.css';
+import Modal from '../components/Modal';
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
 		</Head>
 		<main  className={styles.main} >
 			<NavBar/>
+			<Modal/>
 			<Hero/>
 		</main>
 		
