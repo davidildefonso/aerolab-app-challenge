@@ -25,3 +25,8 @@ body > div:first-child,
 		display: flex;
 		justify-content: center;
 }
+
+
+.hidden{
+	display: none;
+}

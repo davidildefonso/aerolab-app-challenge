@@ -1,9 +1,8 @@
 import styles from '../styles/Modal.module.css';
 
-const Modal = () => {
-
+const Modal = ( props: {visible : boolean}) => {
 	return (
-		<div className= {styles.container}>	
+		<div className= {`${styles.container}  nav-menu-container   ${props.visible ? "" : "hidden"}`}>	
 			<div className={styles.header}>				
 				<p  >ADD BALANCE</p>
 			</div>
@@ -23,22 +22,22 @@ const Modal = () => {
 								
 			</div>
 			<div className={styles.selection}>				
-				<div className={styles.item}>				
+				<div >				
 					<span className={styles.item} >1000</span>
 				</div>
-				<div className={styles.item}>				
+				<div >				
 					<span className={styles.itemSelected} >5000</span>
 				</div>
-				<div className={styles.item}>				
-					<span className={styles.item1} >7500</span>
+				<div >				
+					<span className={styles.item} >7500</span>
 				</div>
 			</div>
 			<div className={styles.action}>				
 				<button className={styles.button} >
-					<div>
-						<img  className={styles.buttonImage} src="/assets/img/logo.svg" alt="hero image"/>	
+					<div  className={styles.imageContainer} >
+						<img  className={styles.buttonImage} src="/assets/img/logo1.svg" alt="hero image"/>	
 					</div>
-					<div>
+					<div className={styles.buttonLabelWrap} >
 						<span>Add Points</span>
 					</div>				
 				</button>

@@ -7,10 +7,13 @@
 	border-radius: 5%;
 	width: 300px;
 	border: 1px solid rgba(0,0,0,0.1);
+	padding-bottom: 20px;
 }		
 .header{
 	text-align: center;
 	border-bottom:  1px solid rgba(0,0,0,0.1);
+	font-size: 1.2rem;
+	font-weight: bold;
 }						
 .imageSection	{
 	padding : 20px;
@@ -51,23 +54,47 @@
 .selection	{
 	display: flex;
 	justify-content: space-evenly;
+	padding: 10px 20px;
+	margin-bottom: 10px;
 }					
 .item{
 	border-radius: 5px;
 	background-color: #E5F0FF;
+	padding: 10px 20px;
 }
 
 
 .itemSelected	{
 	border-radius: 5px;
-	background-color: linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);
-}						
-.action		{
+	background: linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);
+	padding: 10px 20px;
+	color: #fff;
+	
+}		
 
-}				
+.action{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+				
 .button	{
+	border-style: none;
+	border-radius: 5px;
+	background: linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);
+	padding: 10px 20px;
+	color: #fff;
+	display: flex;
+	width: 80%;
+	justify-content: center;
+	align-items: center;
+}	
 
-}			
-.buttonImage{
 
-}				
+.buttonLabelWrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 10px;
+	font-size: 1.1rem;
+}
