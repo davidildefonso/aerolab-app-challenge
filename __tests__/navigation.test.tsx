@@ -7,7 +7,7 @@ import Home from '../pages/index';
 
 describe("Navbar ", () => {
 	const handleClick = jest.fn();
-	const navBarComponent: RenderResult<typeof import("@testing-library/dom/types/queries"), HTMLElement>  = render(<NavBar handleClick={handleClick}/>);
+	const navBarComponent: RenderResult<typeof import("@testing-library/dom/types/queries"), HTMLElement>  = render(<NavBar handleClick={handleClick} visible={false} />);
 	
 	it("renders the logo and user points", () => {
 		

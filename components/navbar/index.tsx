@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MouseEventHandler } from "react";
 import styles from '../../styles/NavBar.module.css';
 
-const NavBar = (props: {handleClick: MouseEventHandler<HTMLDivElement> | undefined}) => {
+const NavBar = (props: {handleClick: MouseEventHandler<HTMLDivElement> | undefined,  visible: boolean  }) => {
 
 	return (
 		<nav className= {styles.navBar}>	
@@ -20,7 +20,7 @@ const NavBar = (props: {handleClick: MouseEventHandler<HTMLDivElement> | undefin
 				<div>
 					3000
 				</div>
-				<div>
+				<div className={   `${props.visible ? "" : "rotate"}`  }>
 					<img src="/assets/img/chevron.svg" alt="chevron icon"></img>
 				</div>
 

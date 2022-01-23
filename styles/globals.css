@@ -30,3 +30,7 @@ body > div:first-child,
 .hidden{
 	display: none;
 }
+
+.rotate{
+	transform: rotate(180deg);
+}
