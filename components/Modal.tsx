@@ -1,6 +1,6 @@
 import styles from '../styles/Modal.module.css';
 
-const Modal = ( props: {visible : boolean}) => {
+const Modal = ( props: {visible : boolean, name: string}) => {
 	return (
 		<div className= {`${styles.container}  nav-menu-container   ${props.visible ? "" : "hidden"}`}>	
 			<div className={styles.header}>				
@@ -15,7 +15,7 @@ const Modal = ( props: {visible : boolean}) => {
 						</div>
 					</div>
 					<div  className={styles.subSection}>
-						<div>John Kite</div>
+						<div>{props.name} </div>
 						<div>07/23</div>
 					</div>
 				</div>

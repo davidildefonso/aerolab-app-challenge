@@ -1,13 +1,26 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps  } from 'next';
 import Head from 'next/head';
 import Hero from '../components/Hero';
 import NavBar from '../components/navbar';
 import styles from '../styles/Home.module.css';
 import Modal from '../components/Modal';
 import { useState } from 'react';
+import userService from '../services/user';
+import { User } from '../types';
 
-const Home: NextPage = () => {
+export const getServerSideProps: GetServerSideProps = async () => {
+	const user :  User | unknown =  await userService.getUser(); 
+	return {
+		props: {
+			user
+		}
+	};
+};
 
+
+const Home: NextPage | unknown = (props: {user : User} ) => {
+
+	const {name, points } = props.user;
 	const [visible, setVisible] = useState(false);
 
 	const handleClick = () => {
@@ -23,8 +36,8 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main  className={styles.main} >
-				<NavBar  handleClick={handleClick} visible={visible}  />
-				<Modal  visible={visible} />
+				<NavBar  handleClick={handleClick} visible={visible} points={points} />
+				<Modal  visible={visible}   name={name} />
 				<Hero/>
 			</main>
 			

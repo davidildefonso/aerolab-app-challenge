@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MouseEventHandler } from "react";
 import styles from '../../styles/NavBar.module.css';
 
-const NavBar = (props: {handleClick: MouseEventHandler<HTMLDivElement> | undefined,  visible: boolean  }) => {
+const NavBar = (props: {handleClick: MouseEventHandler<HTMLDivElement> | undefined,  visible: boolean , points: number }) => {
 
 	return (
 		<nav className= {styles.navBar}>	
@@ -18,7 +18,7 @@ const NavBar = (props: {handleClick: MouseEventHandler<HTMLDivElement> | undefin
 					<img src="/assets/img/aerolab-logo1.svg" alt="navbar-points-logo" role="navbar-points-logo"></img>
 				</div>
 				<div>
-					3000
+					{props.points}
 				</div>
 				<div className={   `${props.visible ? "" : "rotate"}`  }>
 					<img src="/assets/img/chevron.svg" alt="chevron icon"></img>
