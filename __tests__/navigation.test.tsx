@@ -2,12 +2,14 @@ import '@testing-library/jest-dom';
 import { render, RenderResult, screen, fireEvent } from '@testing-library/react';
 import NavBar from '../components/navbar';
 //import { prettyDOM } from '@testing-library/dom';
+import {user} from '../utils/testUtils';
 
 import Home from '../pages/index';
 
 describe("Navbar ", () => {
 	const handleClick = jest.fn();
-	const navBarComponent: RenderResult<typeof import("@testing-library/dom/types/queries"), HTMLElement>  = render(<NavBar handleClick={handleClick} visible={false} />);
+	const navBarComponent: RenderResult<typeof import("@testing-library/dom/types/queries"), HTMLElement>  = 
+		render(<NavBar handleClick={handleClick} visible={false}  points={user.points} />);
 	
 	it("renders the logo and user points", () => {
 		
@@ -20,7 +22,7 @@ describe("Navbar ", () => {
 		}
 		
 		expect(navBarComponent.container).toHaveTextContent(
-			'3000'
+			user.points.toString()
 		);
 
 		
@@ -40,7 +42,7 @@ describe("navbar menu : ", () => {
 	let  HomeComponent: RenderResult<typeof import("@testing-library/dom/types/queries"), HTMLElement> ;
 
 	beforeEach(() => {	
-		HomeComponent = render(<Home/>);	
+		HomeComponent = render(<Home  user={user}/>);	
 
 	
 	});
@@ -60,6 +62,8 @@ describe("navbar menu : ", () => {
 
 		const modalContainer = HomeComponent.container.querySelector(".nav-menu-container");
 		expect(modalContainer).not.toHaveClass("hidden");
+
+		expect( screen.getByTestId("modal-username").textContent ).toBe(user.name);
 
 	});
 

@@ -17,7 +17,7 @@ const NavBar = (props: {handleClick: MouseEventHandler<HTMLDivElement> | undefin
 				<div  className={styles.navMenuLogoDiv} >
 					<img src="/assets/img/aerolab-logo1.svg" alt="navbar-points-logo" role="navbar-points-logo"></img>
 				</div>
-				<div>
+				<div  data-testid="points-nav" >
 					{props.points}
 				</div>
 				<div className={   `${props.visible ? "" : "rotate"}`  }>

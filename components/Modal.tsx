@@ -15,7 +15,7 @@ const Modal = ( props: {visible : boolean, name: string}) => {
 						</div>
 					</div>
 					<div  className={styles.subSection}>
-						<div>{props.name} </div>
+						<div   data-testid = "modal-username"   >{props.name}</div>
 						<div>07/23</div>
 					</div>
 				</div>

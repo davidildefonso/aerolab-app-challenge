@@ -6,4 +6,11 @@ export interface User {
   createDate: Date
   redeemHistory: [string]
   __v: number
+  success?:  boolean
+  message?: string
+}
+
+export interface RequestError { 	
+  success:  boolean
+  message: string
 }

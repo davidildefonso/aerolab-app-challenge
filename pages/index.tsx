@@ -8,8 +8,9 @@ import { useState } from 'react';
 import userService from '../services/user';
 import { User } from '../types';
 
+
 export const getServerSideProps: GetServerSideProps = async () => {
-	const user :  User | unknown =  await userService.getUser(); 
+	const user :  User | unknown =  await userService.getUser("NEXT_PUBLIC_ENV_TOKEN"); 
 	return {
 		props: {
 			user
@@ -18,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 
-const Home: NextPage | unknown = (props: {user : User} ) => {
+const Home: NextPage | React.ElementType  = (props: {user : User} ) => {
 
 	const {name, points } = props.user;
 	const [visible, setVisible] = useState(false);
