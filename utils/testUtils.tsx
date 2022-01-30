@@ -150,3 +150,5 @@ const findProduct  = (id : string)   =>  products.find(p => p._id === id);
 
 
 export const emptyUserPoints = () => {  user.points = 0; };
+
+export const getUserPoints = () => user.points;

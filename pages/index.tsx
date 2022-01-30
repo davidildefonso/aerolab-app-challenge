@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 
 const Home: NextPage | React.ElementType  = (props: {user : User} ) => {
-
+	console.log(props.user);
 	const {name, points } = props.user;
 	const [visible, setVisible] = useState(false);
 

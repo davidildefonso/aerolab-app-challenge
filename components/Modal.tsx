@@ -1,6 +1,29 @@
 import styles from '../styles/Modal.module.css';
+import { useState } from 'react';
+import userService from '../services/user';
+import redeemService from '../services/redeem'
 
 const Modal = ( props: {visible : boolean, name: string}) => {
+
+	const [points , setPoints]  = useState(0);
+
+	const addPoints = async () => {
+		if(points === 0){
+			console.log("nothing");
+			return;
+		}
+		
+
+
+		const res =  await userService.addPoints( "" ,points);
+		console.log(res);
+
+
+		const test = await redeemService.redeem("", "5a0b35c1734d1d08bf7084c3");
+		console.log(test)
+	};
+	
+
 	return (
 		<div className= {`${styles.container}  nav-menu-container   ${props.visible ? "" : "hidden"}`}>	
 			<div className={styles.header}>				
@@ -22,13 +45,13 @@ const Modal = ( props: {visible : boolean, name: string}) => {
 								
 			</div>
 			<div className={styles.selection}>				
-				<div >				
+				<div onClick={() => setPoints(1000)}   data-testid="points-to-add-one" >				
 					<span className={styles.item} >1000</span>
 				</div>
-				<div >				
+				<div  onClick={() => setPoints(5000)}  data-testid="points-to-add-two" >				
 					<span className={styles.itemSelected} >5000</span>
 				</div>
-				<div >				
+				<div  onClick={() => setPoints(7500)} data-testid="points-to-add-three" >				
 					<span className={styles.item} >7500</span>
 				</div>
 			</div>
@@ -37,7 +60,7 @@ const Modal = ( props: {visible : boolean, name: string}) => {
 					<div  className={styles.imageContainer} >
 						<img  className={styles.buttonImage} src="/assets/img/logo1.svg" alt="hero image"/>	
 					</div>
-					<div className={styles.buttonLabelWrap} >
+					<div  onClick={addPoints} className={styles.buttonLabelWrap} >
 						<span>Add Points</span>
 					</div>				
 				</button>

@@ -3,14 +3,21 @@ import {  RedeemResponse, RequestError, RedeemError} from '../types';
 const baseUrl = `${process.env.NEXT_PUBLIC_ENV_BASE_URL}redeem`; 
 
 const redeem = async (ENV_TOKEN : string, id: string) => {
+
+	const token = process.env.NODE_ENV === "test"
+		? process.env[ENV_TOKEN]
+		: process.env.NEXT_PUBLIC_ENV_TOKEN;
+
 	const config = {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
-			"Authorization" : `Bearer ${process.env[ENV_TOKEN]}`
+			"Authorization" : `Bearer ${token}`
 		},
-		body: JSON.stringify({id})	
+		body: {id}
 	};
+
+	console.log(config)
 
 	try {		
 		const res = await fetch(baseUrl, config);		
