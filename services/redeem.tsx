@@ -1,4 +1,4 @@
-import {  RedeemResponse, RequestError, RedeemError} from '../types';
+import {  RedeemResponse, RequestError, RedeemError, Config} from '../types';
 
 const baseUrl = `${process.env.NEXT_PUBLIC_ENV_BASE_URL}redeem`; 
 
@@ -8,7 +8,7 @@ const redeem = async (ENV_TOKEN : string, id: string) => {
 		? process.env[ENV_TOKEN]
 		: process.env.NEXT_PUBLIC_ENV_TOKEN;
 
-	const config = {
+	const config: Config = {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -17,9 +17,11 @@ const redeem = async (ENV_TOKEN : string, id: string) => {
 		body: {id}
 	};
 
-	console.log(config)
+	console.log(config);
 
-	try {		
+	try {	
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore: Unreachable code error	
 		const res = await fetch(baseUrl, config);		
 		if(res){		
 			const data : RedeemResponse | RequestError |  RedeemError | unknown = await res.json();			

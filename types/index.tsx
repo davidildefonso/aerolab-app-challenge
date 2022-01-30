@@ -51,13 +51,14 @@ export interface HistoryFailed{
 }
 
 
-export interface Config{
+export interface Config  {
 	method: string
 	headers: {
 		"Content-Type": string
 		"Authorization": string
 	}
-	body?: string | {
-		points: number 
+	body  ?: {
+		points?: number ,
+		id?: string
 	}
 }

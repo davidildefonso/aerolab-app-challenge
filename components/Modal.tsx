@@ -1,7 +1,7 @@
 import styles from '../styles/Modal.module.css';
 import { useState } from 'react';
 import userService from '../services/user';
-import redeemService from '../services/redeem'
+import redeemService from '../services/redeem';
 
 const Modal = ( props: {visible : boolean, name: string}) => {
 
@@ -20,7 +20,7 @@ const Modal = ( props: {visible : boolean, name: string}) => {
 
 
 		const test = await redeemService.redeem("", "5a0b35c1734d1d08bf7084c3");
-		console.log(test)
+		console.log(test);
 	};
 	
 

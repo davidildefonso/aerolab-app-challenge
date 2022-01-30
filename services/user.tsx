@@ -1,4 +1,4 @@
-import { User, PointsRequest , Product, HistoryFailed} from '../types';
+import { User, PointsRequest , Config, Product, HistoryFailed} from '../types';
 
 const baseUrl = `${process.env.NEXT_PUBLIC_ENV_BASE_URL}user/`; 
 
@@ -21,7 +21,7 @@ const getUser = async (ENV_TOKEN : string) => {
 	try {
 		
 		const res = await fetch(`${baseUrl}me`, config);
-		console.log(res)
+		console.log(res);
 		if(res){		
 			const user : User | unknown = await res.json();
 			
@@ -42,19 +42,19 @@ const addPoints = async (ENV_TOKEN: string, points: number) => {
 		? process.env[ENV_TOKEN]
 		: process.env.NEXT_PUBLIC_ENV_TOKEN;
 
-	const config = {
-		method: "POST",
-		
+	const config:  Config = {
+		method: "POST",		
 		headers: {
 			"Content-Type": "application/json",
 			"Authorization" : `Bearer ${token}`,
-			'Access-Control-Allow-Origin': "*"
 		},
-		body: points //JSON.stringify({points})	
+		body: {points} //JSON.stringify({points})	
 	};
-console.log(config)
+console.log(config);
 
-	try {		
+	try {	
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore: Unreachable code error		
 		const res = await fetch(`${baseUrl}points`, config);		
 		if(res){		
 			const data : PointsRequest | unknown = await res.json();			
