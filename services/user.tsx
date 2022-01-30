@@ -1,4 +1,5 @@
 import { User, PointsRequest , Config, Product, HistoryFailed} from '../types';
+import axios from 'axios';
 
 const baseUrl = `${process.env.NEXT_PUBLIC_ENV_BASE_URL}user/`; 
 
@@ -10,8 +11,7 @@ const getUser = async (ENV_TOKEN : string) => {
 		? process.env[ENV_TOKEN]
 		: process.env.NEXT_PUBLIC_ENV_TOKEN;
 
-	const config = {
-		method: 'GET',
+	const config : Config = {
 		headers: {
 			'Content-Type': 'application/json',
 			'Authorization' : `Bearer ${token}`
@@ -20,10 +20,10 @@ const getUser = async (ENV_TOKEN : string) => {
 
 	try {
 		
-		const res = await fetch(`${baseUrl}me`, config);
+		const res = await axios.get(`${baseUrl}me`, config);
 		console.log(res);
 		if(res){		
-			const user : User | unknown = await res.json();
+			const user : User | unknown = await res.data;
 			
 			return user;
 		}
@@ -42,22 +42,20 @@ const addPoints = async (ENV_TOKEN: string, points: number) => {
 		? process.env[ENV_TOKEN]
 		: process.env.NEXT_PUBLIC_ENV_TOKEN;
 
-	const config:  Config = {
-		method: "POST",		
+	const config:  Config = {	
 		headers: {
 			"Content-Type": "application/json",
 			"Authorization" : `Bearer ${token}`,
-		},
-		body: {points} //JSON.stringify({points})	
+		}
 	};
 console.log(config);
 
 	try {	
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore: Unreachable code error		
-		const res = await fetch(`${baseUrl}points`, config);		
+		const res = await axios.post(`${baseUrl}points`, {points} , config);		
 		if(res){		
-			const data : PointsRequest | unknown = await res.json();			
+			const data : PointsRequest | unknown = await res.data;			
 			return data;
 		}
 		
@@ -73,7 +71,6 @@ const getHistory = async (ENV_TOKEN: string) => {
 		: process.env.NEXT_PUBLIC_ENV_TOKEN;
 
 	const config = {
-		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
 			'Authorization' : `Bearer ${token}`
@@ -81,9 +78,9 @@ const getHistory = async (ENV_TOKEN: string) => {
 	};
 
 	try {		
-		const res = await fetch(`${baseUrl}history`, config);		
+		const res = await axios.get(`${baseUrl}history`, config);		
 		if(res){		
-			const data : [Product] | HistoryFailed |  unknown = await res.json();			
+			const data : [Product] | HistoryFailed |  unknown = await res.data;			
 			return data;
 		}
 		

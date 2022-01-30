@@ -1,4 +1,5 @@
 import {  RedeemResponse, RequestError, RedeemError, Config} from '../types';
+import axios from 'axios';
 
 const baseUrl = `${process.env.NEXT_PUBLIC_ENV_BASE_URL}redeem`; 
 
@@ -9,12 +10,10 @@ const redeem = async (ENV_TOKEN : string, id: string) => {
 		: process.env.NEXT_PUBLIC_ENV_TOKEN;
 
 	const config: Config = {
-		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 			"Authorization" : `Bearer ${token}`
-		},
-		body: {id}
+		}
 	};
 
 	console.log(config);
@@ -22,9 +21,9 @@ const redeem = async (ENV_TOKEN : string, id: string) => {
 	try {	
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore: Unreachable code error	
-		const res = await fetch(baseUrl, config);		
+		const res = await axios.get(baseUrl,{id}, config);		
 		if(res){		
-			const data : RedeemResponse | RequestError |  RedeemError | unknown = await res.json();			
+			const data : RedeemResponse | RequestError |  RedeemError | unknown = await res.data;			
 			return data;
 		}
 		

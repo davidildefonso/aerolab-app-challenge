@@ -1,4 +1,5 @@
 import {  Product, RequestError} from '../types';
+import axios from 'axios';
 
 const baseUrl = `${process.env.NEXT_PUBLIC_ENV_BASE_URL}products`; 
 
@@ -13,7 +14,6 @@ const getAll = async (ENV_TOKEN : string) => {
 		: process.env.NEXT_PUBLIC_ENV_TOKEN;
 
 	const config = {
-		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
 			'Authorization' : `Bearer ${token}`
@@ -21,10 +21,10 @@ const getAll = async (ENV_TOKEN : string) => {
 	};
 
 	try {		
-		const res = await fetch(baseUrl, config);	
+		const res = await axios.get(baseUrl, config);	
 		
 		if(res){		
-			const products : [Product] | RequestError  | unknown = await res.json();			
+			const products : [Product] | RequestError  | unknown = await res.data;			
 			return products;
 		}		
 	} catch (error) {

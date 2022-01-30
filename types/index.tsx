@@ -52,13 +52,8 @@ export interface HistoryFailed{
 
 
 export interface Config  {
-	method: string
 	headers: {
 		"Content-Type": string
 		"Authorization": string
-	}
-	body  ?: {
-		points?: number ,
-		id?: string
 	}
 }
